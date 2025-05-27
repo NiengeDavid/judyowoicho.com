@@ -1,8 +1,19 @@
+import Layout from "@/components/layout";
+
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl font-bold">Welcome to the Home Page</h1>
-      <p className="mt-4 text-lg">This is a simple home page example.</p>
-    </div>
+    <Layout>
+      <div className="text-black">
+        <h1 className="text-4xl text-nowrap font-normal font-oswald text-primary/90 mb-4">Gift ideas for dads & grads</h1>
+        <img
+          src="/assets/gift.jpg"
+          alt="Steal Like an Artist"
+          className="mb-4"
+        />
+        <p>
+          It's what folks in the book industry call “Dads & Grads” season...
+        </p>
+      </div>
+    </Layout>
   );
 }

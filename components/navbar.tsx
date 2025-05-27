@@ -1,0 +1,56 @@
+"use client";
+
+import { useState } from "react";
+import { FaTwitter, FaInstagram } from "react-icons/fa";
+import Container from "./container";
+import { menuList } from "@/data/menuList";
+
+export default function Navbar() {
+  const [currentPage, setCurrentPage] = useState("/");
+
+  return (
+    <nav className="bg-black p-4">
+      <Container>
+        <div className="container mx-auto flex flex-col flex-wrap justify-between items-center gap-6 lg:gap-2 lg:flex-row">
+          {/* Logo */}
+          <h1 className="text-white font-mono text-3xl font-bold uppercase">
+            Judy Owoicho
+          </h1>
+
+          {/* Menu List */}
+          <ul className="flex flex-wrap space-x-4 items-center justify-center leading-7 md:space-x-8 text-white">
+            {menuList.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  onClick={() => setCurrentPage(item.href)}
+                  className={`hover:text-secondary uppercase text-sm ${
+                    currentPage === item.href ? "text-secondary" : ""
+                  }`}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary"
+            >
+              <FaTwitter className="w-6 h-6" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-secondary"
+            >
+              <FaInstagram className="w-6 h-6" />
+            </a>
+          </ul>
+        </div>
+      </Container>
+    </nav>
+  );
+}
