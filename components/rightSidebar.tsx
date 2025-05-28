@@ -8,7 +8,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-const avatar = "/assets/avatar.png"
+const avatar = "/assets/avatar.jpeg";
 
 export default function RightSidebar() {
   return (
@@ -29,11 +29,16 @@ export default function RightSidebar() {
           alt="Judy Owoicho"
           width={120}
           height={120}
-          className="rounded-full"
+          className="rounded-full border-2 shadow-lg"
         />
         <p className="text-sm mt-2">
-          <a href="/about" className="font-semibold text-secondary hover:underline">Judy Owoicho</a> is a
-          writer who draws. He's the bestselling author of{" "}
+          <a
+            href="/about"
+            className="font-semibold text-secondary hover:underline"
+          >
+            Judy Owoicho
+          </a>{" "}
+          is a writer who draws. He's the bestselling author of{" "}
           <em>Steal Like An Artist</em> and other books.{" "}
           <a href="/about" className="text-secondary hover:underline">
             Read more&rarr;
@@ -87,7 +92,9 @@ export default function RightSidebar() {
 
       {/* Newsletter */}
       <div className="space-y-6 flex flex-col gap-4 font-sans">
-        <h3 className="text-sm font-medium text-nowrap mb-2">SUBSCRIBE TO MY NEWSLETTER</h3>
+        <h3 className="text-sm font-medium text-nowrap mb-2">
+          SUBSCRIBE TO MY NEWSLETTER
+        </h3>
         <p className="text-sm mb-2">
           Join the hundreds of thousands of readers who get it delivered free to
           their inboxes every week:
@@ -98,7 +105,7 @@ export default function RightSidebar() {
             alt="Judy Owoicho avatar"
             width={40}
             height={40}
-            className="rounded-xl"
+            className="rounded-xl border shadow-lg"
           />
           <div>
             <p className="font-bold text-sm">Judy Owoicho</p>
