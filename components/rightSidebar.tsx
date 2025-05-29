@@ -18,7 +18,7 @@ export default function RightSidebar() {
         <Input
           type="text"
           placeholder="Search this website"
-          className="w-full border border-gray-300 rounded-sm px-3 py-6 font-sans focus:outline-none focus:ring-2 focus:ring-secondary"
+          className="w-full bg-creamy/50 border border-gray-300 rounded-sm px-3 py-6 font-serif focus:outline-none focus:ring-2 focus:ring-secondary"
         />
       </div>
       {/* About the Author */}

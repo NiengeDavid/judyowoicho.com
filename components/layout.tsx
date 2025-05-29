@@ -19,7 +19,7 @@ export default function Layout({ children, className = "" }: LayoutProps) {
           <LeftSidebar />
         </div>
         {/* Main content */}
-        <main className="w-full max-w-2xl mx-auto flex-1 py-8 px-4 lg:border-x border-gray-300">
+        <main className="w-full max-w-2xl mx-auto flex-1 py-4 px-4 lg:border-x border-gray-300 lg:px-8">
           {children}
         </main>
         {/* Right Sidebar */}
