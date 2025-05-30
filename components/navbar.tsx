@@ -14,7 +14,7 @@ export default function Navbar() {
         <div className="container mx-auto flex flex-col flex-wrap justify-between items-center gap-6 lg:gap-2 lg:flex-row">
           {/* Logo */}
           <h1 className="text-white font-mono text-3xl font-bold uppercase">
-            Judy Owoicho
+            Judith Owoicho
           </h1>
 
           {/* Menu List */}

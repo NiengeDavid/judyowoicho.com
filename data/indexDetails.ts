@@ -1,8 +1,8 @@
 export const indexDetails = {
   pageMetadata: {
-    title: "Blog - Judy Owoicho",
+    title: "Blog - Judith Owoicho",
     description:
-      "It's what folks in the book industry call “Dads & Grads” season, and we have some great gift ideas for the dads and grads in your life.",
+      "It's what folks in the industry call “seasoned” thoughts.",
   },
   pageContent: [
     {

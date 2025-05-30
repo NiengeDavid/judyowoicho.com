@@ -1,5 +1,5 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import { urlFor } from "@/sanity/lib/image"; // Import your Sanity image helper
+import { urlFor } from "@/sanity/lib/image";
 
 const components: PortableTextComponents = {
   // You can extend or style these as needed
@@ -46,7 +46,7 @@ const components: PortableTextComponents = {
     image: ({ value }) =>
       value?.asset?._ref ? (
         <img
-          src={urlFor(value.asset._ref).url()} // Generate the image URL
+          src={urlFor(value.asset._ref).url()} // Generates the image URL
           alt={value.alt || ""}
           className="my-4 rounded"
         />

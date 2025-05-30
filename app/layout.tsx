@@ -26,21 +26,21 @@ const geistOswald = Oswald({
 
 export const metadata: Metadata = {
   title: {
-    default: "- Judy Owoicho",
-    template: "%s - Judy Owoicho",
+    default: "- Judith Owoicho",
+    template: "%s - Judith Owoicho",
   },
-  description: "Welcome to my world - Judy.",
+  description: "Welcome to my world - Judith.",
   openGraph: {
-    title: "Judy Owoicho",
-    description: "Welcome to my world - Judy.",
-    siteName: "Judy Owoicho",
+    title: "Judith Owoicho",
+    description: "Welcome to my world - Judith.",
+    siteName: "Judith Owoicho",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Judy Owoicho",
-    description: "Welcome to my world - Judy.",
+    title: "Judith Owoicho",
+    description: "Welcome to my world - Judith.",
   },
 };
 
