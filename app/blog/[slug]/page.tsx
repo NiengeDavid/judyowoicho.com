@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import PortableTextRenderer from "@/components/portableTextRenderer";
-import { notFound } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -91,15 +90,12 @@ export default function BlogSlugPage({ params }: Params) {
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            {/* <BreadcrumbItem>
-              <BreadcrumbLink
-                className="text-secondary hover:text-primary"
-                href="/blog"
-              >
-                Blog
+            <BreadcrumbItem>
+              <BreadcrumbLink className="text-secondary hover:text-primary">
+                {blog?.categories[0]?.title || "Communication"}
               </BreadcrumbLink>
-            </BreadcrumbItem> */}
-            {/* <BreadcrumbSeparator /> */}
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbPage>{blog?.title}</BreadcrumbPage>
             </BreadcrumbItem>
@@ -135,7 +131,7 @@ export default function BlogSlugPage({ params }: Params) {
           <p className="text-secondary text-lg">
             {blog?.categories?.length
               ? blog.categories.map((category) => category.title).join(", ")
-              : "Miscellany"}
+              : "Communication"}
           </p>
         </div>
       </Layout>
