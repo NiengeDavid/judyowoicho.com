@@ -1,12 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-type Blog = {
-  title: string;
-  mainImage: { asset: { url: string }; alt?: string };
-  slug: { current: string };
-  body: any[];
-};
+import { Blog } from "@/sanity/lib/sanity.queries";
 
 function getFirstParagraph(blocks: any[]): string {
   // Find first "normal" block with text
@@ -29,10 +23,10 @@ export default function BlogCard({ blog }: { blog: Blog }) {
           {blog.title}
         </h2>
       </Link>
-      {blog.mainImage?.asset?.url && (
+      {blog.mainImage?.url && (
         <Link href={`/blog/${blog.slug.current}`}>
           <Image
-            src={blog.mainImage.asset.url}
+            src={blog.mainImage.url}
             width={600}
             height={687}
             alt={blog.mainImage.alt || blog.title}

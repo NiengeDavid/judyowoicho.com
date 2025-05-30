@@ -1,4 +1,5 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
+import { urlFor } from "@/sanity/lib/image"; // Import your Sanity image helper
 
 const components: PortableTextComponents = {
   // You can extend or style these as needed
@@ -43,10 +44,9 @@ const components: PortableTextComponents = {
   },
   types: {
     image: ({ value }) =>
-      // For static demo, value.asset.url must be present; for Sanity API, you will need to use urlFor (see note below)
-      value?.asset?.url ? (
+      value?.asset?._ref ? (
         <img
-          src={value.asset.url}
+          src={urlFor(value.asset._ref).url()} // Generate the image URL
           alt={value.alt || ""}
           className="my-4 rounded"
         />
@@ -54,6 +54,10 @@ const components: PortableTextComponents = {
   },
 };
 
-export default function PortableTextRenderer({ blocks }: { blocks: any[] }) {
-  return <PortableText value={blocks} components={components} />;
+export default function PortableTextRenderer({
+  blocks,
+}: {
+  blocks: any[] | undefined;
+}) {
+  return <PortableText value={blocks || []} components={components} />;
 }
