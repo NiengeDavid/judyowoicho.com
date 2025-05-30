@@ -13,7 +13,7 @@ export default function FooterBottom() {
         <p className="text-black">
           © Judith Owiocho 2024–{new Date().getFullYear()}
         </p>
-        <nav className="flex justify-center space-x-2 lg:space-x-4 text-black">
+        <nav className="flex flex-wrap space-x-4 items-center justify-center leading-7 md:space-x-8 text-black">
           {menuList.map((item) => (
             <a
               key={item.href}
