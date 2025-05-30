@@ -18,7 +18,7 @@ import { type Blog } from "@/sanity/lib/sanity.queries";
 import { toast } from "sonner";
 
 interface Params {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default function BlogSlugPage({ params }: Params) {
