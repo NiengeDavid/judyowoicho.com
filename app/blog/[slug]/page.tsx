@@ -42,12 +42,8 @@ export default function BlogSlugPage({ params }: Params) {
       try {
         if (slug) {
           const blogData = await getBlogBySlug(client, slug);
-          if (Array.isArray(blogData) && blogData.length > 0) {
-            setBlog(blogData[0]);
-          } else {
-            setBlog(null);
-          }
-          //console.log("Blog Data:", blogData);
+          setBlog(blogData);
+          console.log("Blog Data:", blogData);
         } else {
           setBlog(null);
         }
@@ -92,7 +88,7 @@ export default function BlogSlugPage({ params }: Params) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink className="text-secondary hover:text-primary">
-                {blog?.categories[0]?.title || "Communication"}
+                {blog?.categories[0]?.title || "Communications"}
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />

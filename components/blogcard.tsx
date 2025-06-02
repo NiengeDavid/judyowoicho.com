@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Blog } from "@/sanity/lib/sanity.queries";
+import { type Blog } from "@/sanity/lib/sanity.queries";
 
 function getFirstParagraph(blocks: any[]): string {
   // Find first "normal" block with text
@@ -41,6 +41,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
       >
         Permalink
       </Link>
+
     </div>
   );
 }

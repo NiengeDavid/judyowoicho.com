@@ -6,7 +6,11 @@ import {
 } from "@/sanity/lib/sanity.api";
 
 import { createClient, type SanityClient } from "next-sanity";
-import { getAllBlogsQuery, type Blog } from "./sanity.queries";
+import {
+  getAllBlogsQuery,
+  getBlogBySlugQuery,
+  type Blog,
+} from "./sanity.queries";
 
 export function getClient(preview?: { token: string }): SanityClient {
   const client = createClient({
@@ -39,5 +43,5 @@ export async function getBlogBySlug(
   client: SanityClient,
   slug: string
 ): Promise<Blog | null> {
-  return await client.fetch(getAllBlogsQuery, { slug });
+  return await client.fetch(getBlogBySlugQuery, { slug });
 }
