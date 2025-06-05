@@ -7,8 +7,11 @@ import {
 
 import { createClient, type SanityClient } from "next-sanity";
 import {
+  Book,
   getAllBlogsQuery,
+  getAllBooksQuery,
   getBlogBySlugQuery,
+  getBookBySlugQuery,
   type Blog,
 } from "./sanity.queries";
 
@@ -33,7 +36,7 @@ export function getClient(preview?: { token: string }): SanityClient {
 
 export const getSanityImageConfig = () => getClient();
 
-// Fetch all available products
+// Fetch all available blogs
 export async function getAllBlogs(client: SanityClient): Promise<Blog[]> {
   return await client.fetch(getAllBlogsQuery);
 }
@@ -44,4 +47,17 @@ export async function getBlogBySlug(
   slug: string
 ): Promise<Blog | null> {
   return await client.fetch(getBlogBySlugQuery, { slug });
+}
+
+// Fetch all available books
+export async function getAllBooks(client: SanityClient): Promise<Book[]> {
+  return await client.fetch(getAllBooksQuery);
+}
+
+//Fetch a single book by slug
+export async function getBookBySlug(
+  client: SanityClient,
+  slug: string
+): Promise<Book | null> {
+  return await client.fetch(getBookBySlugQuery, { slug });
 }

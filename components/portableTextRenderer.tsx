@@ -1,8 +1,17 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 
+// --- YouTube ID extraction helper ---
+function getYouTubeId(url: string): string | null {
+  if (!url) return null;
+  // Support YouTube share and full URLs
+  const regExp =
+    /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(regExp);
+  return match && match[1] ? match[1] : null;
+}
+
 const components: PortableTextComponents = {
-  // You can extend or style these as needed
   block: {
     h2: ({ children }) => (
       <h2 className="text-xl font-bold mt-6 mb-2">{children}</h2>
@@ -46,11 +55,29 @@ const components: PortableTextComponents = {
     image: ({ value }) =>
       value?.asset?._ref ? (
         <img
-          src={urlFor(value.asset._ref).url()} // Generates the image URL
+          src={urlFor(value.asset._ref).url()}
           alt={value.alt || ""}
           className="my-4 rounded"
         />
       ) : null,
+    youtube: ({ value }) => {
+      const videoId = getYouTubeId(value?.url);
+      if (!videoId) return null;
+      return (
+        <div className="my-6 flex justify-center">
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="rounded-lg w-full max-w-xl aspect-video"
+          ></iframe>
+        </div>
+      );
+    },
   },
 };
 

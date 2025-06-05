@@ -17,7 +17,20 @@ const blogFields = groq`
   body
 `;
 
-// Get all available products
+//base book fields
+const bookFields = groq`
+  _id,
+  title,
+  slug,
+  description,
+  "mainImage": mainImage{
+    "url": asset->url,
+    "alt": alt
+  },
+  body
+`;
+
+// Get all available blogs
 export const getAllBlogsQuery = groq`
   *[_type == "blog"] | order(_createdAt asc) {
     ${blogFields}
@@ -28,6 +41,20 @@ export const getAllBlogsQuery = groq`
 export const getBlogBySlugQuery = groq`
   *[_type == "blog" && slug.current == $slug][0] {
     ${blogFields}
+  }
+`;
+
+//Get all available books
+export const getAllBooksQuery = groq`
+  *[_type == "book"] | order(_createdAt asc) {
+    ${bookFields}
+  }
+`;
+
+// Get single book by slug
+export const getBookBySlugQuery = groq`
+  *[_type == "book" && slug.current == $slug][0] {
+    ${bookFields}
   }
 `;
 
@@ -66,4 +93,15 @@ export interface Blog {
     listItem?: string;
     level?: number;
   }>;
+}
+
+export interface Book {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  description: any;
+  mainImage: SanityImage;
+  body: any;
 }

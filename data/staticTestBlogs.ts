@@ -2,8 +2,7 @@
 export const blogs = [
   {
     _id: "a333a65e-2fd4-44b1-9c44-45904fff940c",
-    title:
-      "Strategic Communication in Public Healthcare",
+    title: "Strategic Communication in Public Healthcare",
     slug: {
       current:
         "strategic-communication-in-public-healthcare-bridging-the-gap-between-policy-and-the-people",

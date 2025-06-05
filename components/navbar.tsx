@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaTwitter, FaInstagram } from "react-icons/fa";
 import Container from "./container";
 import { menuList } from "@/data/menuList";
 
 export default function Navbar() {
-  const [currentPage, setCurrentPage] = useState("/");
+  const pathname = usePathname();
 
   return (
     <nav className="bg-black p-4">
@@ -21,33 +22,36 @@ export default function Navbar() {
           <ul className="flex flex-wrap space-x-4 items-center justify-center leading-7 md:space-x-8 text-white">
             {menuList.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
-                  onClick={() => setCurrentPage(item.href)}
                   className={`hover:text-secondary uppercase text-sm ${
-                    currentPage === item.href ? "text-secondary" : ""
+                    pathname === item.href ? "text-secondary" : ""
                   }`}
                 >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-secondary"
-            >
-              <FaTwitter className="w-6 h-6" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-secondary"
-            >
-              <FaInstagram className="w-6 h-6" />
-            </a>
+            <li>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-secondary"
+              >
+                <FaTwitter className="w-6 h-6" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-secondary"
+              >
+                <FaInstagram className="w-6 h-6" />
+              </a>
+            </li>
           </ul>
         </div>
       </Container>

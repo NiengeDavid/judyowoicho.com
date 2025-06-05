@@ -14,6 +14,15 @@ import { readToken } from "@/sanity/lib/sanity.api";
 import { getAllBlogs, getClient } from "@/sanity/lib/sanity.client";
 import { type Blog } from "@/sanity/lib/sanity.queries";
 import { toast } from "sonner";
+import Link from "next/link";
+
+const moreAboutMeLinks = [
+  { href: "/books", label: "Books I’ve written" },
+  { href: "/newsletter", label: "My newsletter" },
+  { href: "/books-read", label: "Books I’ve read" },
+  { href: "https://twitter.com", label: "Twitter", external: true },
+  { href: "https://instagram.com", label: "Instagram", external: true },
+];
 
 export default function FooterTop() {
   const client = getClient({ token: readToken });
@@ -68,51 +77,24 @@ export default function FooterTop() {
         <div>
           <h3 className="text-sm font-bold uppercase mb-4">More About Me</h3>
           <ul className="space-y-2 text-secondary text-lg">
-            <li className="border-b border-gray-700 pb-1">
-              <a href="/books" className="hover:underline">
-                Books I’ve written
-              </a>
-            </li>
-            <li className="border-b border-gray-700 pb-1">
-              <a href="/newsletter" className="hover:underline">
-                My newsletter
-              </a>
-            </li>
-            <li className="border-b border-gray-700 pb-1">
-              <a href="/books-read" className="hover:underline">
-                Books I’ve read
-              </a>
-            </li>
-            <li className="border-b border-gray-700 pb-1">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Twitter
-              </a>
-            </li>
-            <li className="border-b border-gray-700 pb-1">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Instagram
-              </a>
-            </li>
-            <li className="border-b border-gray-700 pb-1">
-              <a
-                href="https://tumblr.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Tumblr
-              </a>
-            </li>
+            {moreAboutMeLinks.map((more) => (
+              <li key={more?.href} className="border-b border-gray-700 pb-1">
+                {more.external ? (
+                  <a
+                    href={more?.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {more.label}
+                  </a>
+                ) : (
+                  <Link href={more?.href} className="hover:underline">
+                    {more.label}
+                  </Link>
+                )}
+              </li>
+            ))}
           </ul>
         </div>
 

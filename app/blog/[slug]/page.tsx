@@ -43,7 +43,7 @@ export default function BlogSlugPage({ params }: Params) {
         if (slug) {
           const blogData = await getBlogBySlug(client, slug);
           setBlog(blogData);
-          console.log("Blog Data:", blogData);
+          //console.log("Blog Data:", blogData);
         } else {
           setBlog(null);
         }
