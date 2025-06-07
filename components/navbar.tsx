@@ -14,9 +14,11 @@ export default function Navbar() {
       <Container>
         <div className="container mx-auto flex flex-col flex-wrap justify-between items-center gap-6 lg:gap-2 lg:flex-row">
           {/* Logo */}
-          <h1 className="text-white font-mono text-3xl font-bold uppercase">
-            Judith Owoicho
-          </h1>
+          <Link href={"/"}>
+            <h1 className="text-white font-mono text-3xl font-bold uppercase">
+              Judith Owoicho
+            </h1>
+          </Link>
 
           {/* Menu List */}
           <ul className="flex flex-wrap space-x-4 items-center justify-center leading-7 md:space-x-8 text-white">
