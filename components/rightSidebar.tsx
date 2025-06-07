@@ -103,15 +103,15 @@ export default function RightSidebar() {
           <iframe
             src="https://syntax001.substack.com/embed"
             width="480"
-            height="150"
+            height="320"
             // style="border:1px solid #EEE; background:white;"
-            className="max-w-68 h-auto border bg-white"
+            className="max-w-68 h-80 border bg-white"
             frameBorder="0"
             scrolling="no"
           ></iframe>
         </div>
 
-        <div className="flex items-center gap-2 mt-2">
+        {/* <div className="flex items-center gap-2 mt-2">
           <Image
             src={avatar}
             alt="Judy Owoicho avatar"
@@ -125,7 +125,7 @@ export default function RightSidebar() {
               Weekly art, writing, and creative inspiration.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </aside>
   );
