@@ -99,6 +99,18 @@ export default function RightSidebar() {
           Join the hundreds of thousands of readers who get it delivered free to
           their inboxes every week:
         </p>
+        <div className="w-full">
+          <iframe
+            src="https://syntax001.substack.com/embed"
+            width="480"
+            height="150"
+            // style="border:1px solid #EEE; background:white;"
+            className="max-w-68 h-auto border bg-white"
+            frameBorder="0"
+            scrolling="no"
+          ></iframe>
+        </div>
+
         <div className="flex items-center gap-2 mt-2">
           <Image
             src={avatar}
