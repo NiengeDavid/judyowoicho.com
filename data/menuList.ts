@@ -1,7 +1,11 @@
 export const menuList = [
   { name: "Blog", href: "/" },
   { name: "Books", href: "/books" },
-  { name: "Newsletter", href: "/newsletter" },
+  {
+    name: "Newsletter",
+    href: "https://syntax001.substack.com/",
+    isExternal: true,
+  },
   { name: "Speaking", href: "/speaking" },
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },

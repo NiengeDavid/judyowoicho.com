@@ -24,14 +24,25 @@ export default function Navbar() {
           <ul className="flex flex-wrap space-x-4 items-center justify-center leading-7 md:space-x-8 text-white">
             {menuList.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`hover:text-secondary uppercase text-sm ${
-                    pathname === item.href ? "text-secondary" : ""
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                {item.isExternal ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-secondary uppercase text-sm"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`hover:text-secondary uppercase text-sm ${
+                      pathname === item.href ? "text-secondary" : ""
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
               </li>
             ))}
             <li>
