@@ -18,7 +18,7 @@ export default function RightSidebar() {
         <Input
           type="text"
           placeholder="Search this website"
-          className="w-full bg-creamy/50 border border-gray-300 rounded-sm px-3 py-6 font-serif focus:outline-none focus:ring-2 focus:ring-secondary"
+          className="w-full bg-creamy/50 border border-gray-300 rounded-sm px-3 py-6 font-serif focus:outline-none focus:ring-2 focus:ring-secondary drop-shadow"
         />
       </div>
       {/* About the Author */}
@@ -47,7 +47,7 @@ export default function RightSidebar() {
       </div>
 
       {/* Social Links */}
-      <div className="flex gap-4">
+      <div className="w-full flex gap-4 justify-content-start items-center">
         <a
           href="#"
           className="rounded-full bg-black text-white p-2 hover:bg-secondary"

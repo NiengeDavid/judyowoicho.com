@@ -26,6 +26,14 @@ export default function Layout({ children, className = "" }: LayoutProps) {
         <div className="hidden lg:flex lg:flex-shrink-0 lg:w-[240px]">
           <RightSidebar />
         </div>
+        {/* Right Sidebar (Below main on mobile, right on large screens) */}
+        <div className="flex lg:hidden order-2 w-full max-w-2xl mx-auto px-4 py-4 mt-20">
+          <RightSidebar />
+        </div>
+        {/* Left Sidebar (Below right on mobile, left on large screens) */}
+        <div className="flex lg:hidden order-3 w-full max-w-2xl mx-auto px-4 py-4 mt-10">
+          <LeftSidebar />
+        </div>
       </div>
     </Container>
   );
