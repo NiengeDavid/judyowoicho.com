@@ -7,7 +7,9 @@ import {
 
 import { createClient, type SanityClient } from "next-sanity";
 import {
+  About,
   Book,
+  getAboutQuery,
   getAllBlogsQuery,
   getAllBooksQuery,
   getBlogBySlugQuery,
@@ -60,4 +62,9 @@ export async function getBookBySlug(
   slug: string
 ): Promise<Book | null> {
   return await client.fetch(getBookBySlugQuery, { slug });
+}
+
+// Fetch about page content
+export async function getAbout(client: SanityClient): Promise<About | null> {
+  return await client.fetch(getAboutQuery);
 }

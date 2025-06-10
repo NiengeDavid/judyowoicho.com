@@ -58,6 +58,27 @@ export const getBookBySlugQuery = groq`
   }
 `;
 
+//Get about Page
+export const getAboutQuery = groq`
+  *[_type == "about"][0] {
+    _id,
+    title,
+    photoCredits[0]{
+      name,
+      url
+    },
+    "mainImage": mainImage{
+    "url": asset->url,
+    "alt": alt
+  },
+    body[]{
+      title,
+      scroll,
+      body
+    }
+  }
+`;
+
 export interface SanityImage {
   url: string;
   alt?: string;
@@ -104,4 +125,22 @@ export interface Book {
   description: any;
   mainImage: SanityImage;
   body: any;
+}
+
+export interface About {
+  _id: string;
+  title: string;
+  photoCredits: {
+    name: string;
+    url: string;
+  };
+  mainImage: {
+    url: string;
+    alt?: string;
+  };
+  body: {
+    title: string;
+    scroll: string;
+    body: any; // Portable Text for body content
+  }[];
 }
