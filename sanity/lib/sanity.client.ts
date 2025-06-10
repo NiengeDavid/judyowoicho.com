@@ -9,11 +9,13 @@ import { createClient, type SanityClient } from "next-sanity";
 import {
   About,
   Book,
+  Contact,
   getAboutQuery,
   getAllBlogsQuery,
   getAllBooksQuery,
   getBlogBySlugQuery,
   getBookBySlugQuery,
+  getContactQuery,
   type Blog,
 } from "./sanity.queries";
 
@@ -67,4 +69,11 @@ export async function getBookBySlug(
 // Fetch about page content
 export async function getAbout(client: SanityClient): Promise<About | null> {
   return await client.fetch(getAboutQuery);
+}
+
+// Fetch about contact content
+export async function getContact(
+  client: SanityClient
+): Promise<Contact | null> {
+  return await client.fetch(getContactQuery);
 }

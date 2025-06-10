@@ -79,6 +79,23 @@ export const getAboutQuery = groq`
   }
 `;
 
+//Get contact Page
+export const getContactQuery = groq`
+  *[_type == "contact"][0] {
+    _id,
+    title,
+    "mainImage": mainImage{
+    "url": asset->url,
+    "alt": alt
+  },
+    body[]{
+      title,
+      scroll,
+      body
+    }
+  }
+`;
+
 export interface SanityImage {
   url: string;
   alt?: string;
@@ -134,6 +151,20 @@ export interface About {
     name: string;
     url: string;
   };
+  mainImage: {
+    url: string;
+    alt?: string;
+  };
+  body: {
+    title: string;
+    scroll: string;
+    body: any; // Portable Text for body content
+  }[];
+}
+
+export interface Contact {
+  _id: string;
+  title: string;
   mainImage: {
     url: string;
     alt?: string;

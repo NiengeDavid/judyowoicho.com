@@ -10,7 +10,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-black p-4">
+    <nav className="bg-primary p-4">
       <Container>
         <div className="container mx-auto flex flex-col flex-wrap justify-between items-center gap-6 lg:gap-2 lg:flex-row">
           {/* Logo */}

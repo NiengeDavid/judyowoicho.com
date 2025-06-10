@@ -51,7 +51,7 @@ export default function FooterTop() {
   }, []);
 
   return (
-    <div className="bg-black font-serif text-white py-12 px-4 md:px-20">
+    <div className="bg-primary font-serif text-white py-12 px-4 md:px-20">
       <Container className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Recent Posts */}
         <div>
