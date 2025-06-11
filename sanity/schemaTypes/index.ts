@@ -8,6 +8,7 @@ import { youtubeType } from "./youtubeType";
 import { bookType } from "./booksType";
 import { aboutType } from "./aboutType";
 import { contactType } from "./contactType";
+import { speakingType } from "./speakingType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -19,5 +20,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     bookType,
     aboutType,
     contactType,
+    speakingType,
   ],
 };

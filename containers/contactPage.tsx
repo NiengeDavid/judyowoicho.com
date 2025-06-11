@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Layout from "@/components/layout";
 import { readToken } from "@/sanity/lib/sanity.api";
-import { getClient } from "@/sanity/lib/sanity.client";
-import { getContactQuery, type Contact } from "@/sanity/lib/sanity.queries";
+import { getClient, getContact } from "@/sanity/lib/sanity.client";
+import { type Contact } from "@/sanity/lib/sanity.queries";
 import { toast } from "sonner";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,7 +19,7 @@ export default function ContactPage() {
     const fetchContact = async () => {
       setIsLoading(true);
       try {
-        const contactData = await client.fetch(getContactQuery);
+        const contactData = await getContact(client);
         setContact(contactData);
         //console.log("Contact Data:", contactData);
       } catch (error) {

@@ -96,6 +96,19 @@ export const getContactQuery = groq`
   }
 `;
 
+//Get Speaking Page
+export const getSpeakQuery = groq`
+  *[_type == "speaking"][0] {
+    _id,
+    title,
+    "mainImage": mainImage{
+    "url": asset->url,
+    "alt": alt
+  },
+   body,
+}
+`;
+
 export interface SanityImage {
   url: string;
   alt?: string;
@@ -174,4 +187,14 @@ export interface Contact {
     scroll: string;
     body: any; // Portable Text for body content
   }[];
+}
+
+export interface Speak {
+  _id: string;
+  title: string;
+  mainImage: {
+    url: string;
+    alt?: string;
+  };
+  body: any;
 }

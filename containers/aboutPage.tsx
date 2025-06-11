@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Layout from "@/components/layout";
 import { readToken } from "@/sanity/lib/sanity.api";
-import { getClient } from "@/sanity/lib/sanity.client";
+import { getClient, getAbout } from "@/sanity/lib/sanity.client";
 import { getAboutQuery, type About } from "@/sanity/lib/sanity.queries";
 import { toast } from "sonner";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default function AboutPage() {
     const fetchAbout = async () => {
       setIsLoading(true);
       try {
-        const aboutData = await client.fetch(getAboutQuery);
+        const aboutData = await getAbout(client);
         setAbout(aboutData);
         //console.log("About Data:", aboutData);
       } catch (error) {

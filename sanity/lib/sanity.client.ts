@@ -16,6 +16,8 @@ import {
   getBlogBySlugQuery,
   getBookBySlugQuery,
   getContactQuery,
+  getSpeakQuery,
+  Speak,
   type Blog,
 } from "./sanity.queries";
 
@@ -71,9 +73,14 @@ export async function getAbout(client: SanityClient): Promise<About | null> {
   return await client.fetch(getAboutQuery);
 }
 
-// Fetch about contact content
+// Fetch contact content
 export async function getContact(
   client: SanityClient
 ): Promise<Contact | null> {
   return await client.fetch(getContactQuery);
+}
+
+// Fetch speaking content
+export async function getSpeak(client: SanityClient): Promise<Speak | null> {
+  return await client.fetch(getSpeakQuery);
 }
