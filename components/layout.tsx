@@ -2,6 +2,7 @@ import LeftSidebar from "@/components/leftSidebar";
 import RightSidebar from "@/components/rightSidebar";
 import { ReactNode } from "react";
 import Container from "./container";
+import { Separator } from "./ui/separator";
 
 type LayoutProps = {
   children: ReactNode;
@@ -35,6 +36,8 @@ export default function Layout({ children, className = "" }: LayoutProps) {
           <LeftSidebar />
         </div>
       </div>
+      <Separator className="bg-gray-300" />
+      <Separator className="mb-8 mt-1 bg-gray-300" />
     </Container>
   );
 }
