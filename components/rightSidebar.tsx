@@ -101,7 +101,7 @@ export default function RightSidebar() {
         </p>
         <div className="w-full">
           <iframe
-            src="https://syntax001.substack.com/embed"
+            src="https://quickfixcareer.substack.com/embed"
             width="480"
             height="320"
             // style="border:1px solid #EEE; background:white;"

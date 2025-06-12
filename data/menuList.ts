@@ -3,7 +3,7 @@ export const menuList = [
   { name: "Books", href: "/books" },
   {
     name: "Newsletter",
-    href: "https://syntax001.substack.com/",
+    href: "https://quickfixcareer.substack.com/",
     isExternal: true,
   },
   { name: "Speaking", href: "/speaking" },

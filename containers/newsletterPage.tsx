@@ -9,7 +9,7 @@ export default function NewsletterPage() {
         </h2>
         <div className="w-full mb-6">
           <iframe
-            src="https://syntax001.substack.com/embed"
+            src="https://quickfixcareer.substack.com/embed"
             width="480"
             height="320"
             // style="border:1px solid #EEE; background:white;"
@@ -21,7 +21,7 @@ export default function NewsletterPage() {
         <span className="text-lg text-primary font-normal py-2">
           Not ready to sign up yet?{" "}
           <a
-            href="http://syntax001.substack.com/archives"
+            href="https://quickfixcareer.substack.com/archives"
             target="_blank"
             rel="noopener noreferrer"
             className="text-secondary hover:underline"
