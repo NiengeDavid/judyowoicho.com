@@ -39,7 +39,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
         href={`/blog/${blog.slug.current}`}
         className="text-sm text-secondary hover:underline"
       >
-        Permalink
+        Read more
       </Link>
 
     </div>
