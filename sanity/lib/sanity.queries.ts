@@ -46,7 +46,7 @@ export const getBlogBySlugQuery = groq`
 
 //Get all available books
 export const getAllBooksQuery = groq`
-  *[_type == "book"] | order(_createdAt asc) {
+  *[_type == "book"] | order(_createdAt desc) {
     ${bookFields}
   }
 `;
