@@ -41,7 +41,7 @@ const components: PortableTextComponents = {
       value?.href ? (
         <a
           href={value.href}
-          className="text-secondary underline"
+          className="text-secondary underline break-words"
           target="_blank"
           rel="noopener noreferrer"
         >
