@@ -18,13 +18,13 @@ function getFirstParagraph(blocks: any[]): string {
 export default function BlogCard({ blog }: { blog: Blog }) {
   return (
     <div className="mb-6 lg:px-4">
-      <Link href={`/blog/${blog.slug.current}`}>
+      <Link href={`/blog/${blog?.slug?.current}`}>
         <h2 className="text-4xl font-normal font-oswald mb-6 text-primary hover:text-secondary cursor-pointer">
           {blog.title}
         </h2>
       </Link>
       {blog.mainImage?.url && (
-        <Link href={`/blog/${blog.slug.current}`}>
+        <Link href={`/blog/${blog?.slug?.current}`}>
           <Image
             src={blog.mainImage.url}
             width={600}
@@ -36,12 +36,11 @@ export default function BlogCard({ blog }: { blog: Blog }) {
       )}
       <p className="mb-2 text-gray-700">{getFirstParagraph(blog.body)}</p>
       <Link
-        href={`/blog/${blog.slug.current}`}
+        href={`/blog/${blog?.slug?.current}`}
         className="text-sm text-secondary hover:underline"
       >
         Read more
       </Link>
-
     </div>
   );
 }

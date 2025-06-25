@@ -58,16 +58,17 @@ export default function FooterTop() {
           <h3 className="text-sm font-bold uppercase mb-4">Recent Posts</h3>
           <ul className="space-y-2 text-secondary text-lg">
             {blogs.slice(0, 5).map((blog) => (
-              <li
-                key={blog.slug.current}
-                className="border-b border-gray-700 pb-1"
-              >
-                <a
-                  href={`/blog/${blog.slug.current}`}
-                  className="hover:underline"
-                >
-                  {blog.title}
-                </a>
+              <li key={blog?._id} className="border-b border-gray-700 pb-1">
+                {blog?.slug?.current ? (
+                  <a
+                    href={`/blog/${blog.slug.current}`}
+                    className="hover:underline"
+                  >
+                    {blog.title}
+                  </a>
+                ) : (
+                  <span className="text-gray-400">Invalid Blog</span>
+                )}
               </li>
             ))}
           </ul>
