@@ -9,6 +9,9 @@ import { bookType } from "./booksType";
 import { aboutType } from "./aboutType";
 import { contactType } from "./contactType";
 import { speakingType } from "./speakingType";
+import { leftsideType } from "./leftsideType";
+import { rightsideType } from "./rightsideType";
+import { socialLinksType } from "./socialsType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -21,5 +24,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutType,
     contactType,
     speakingType,
+    leftsideType,
+    rightsideType,
+    socialLinksType,
   ],
 };

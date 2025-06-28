@@ -105,7 +105,7 @@ export default function RightSidebar() {
             width="480"
             height="320"
             // style="border:1px solid #EEE; background:white;"
-            className="max-w-68 h-80 border bg-white"
+            className="max-w-68 h-100 border bg-white"
             frameBorder="0"
             scrolling="no"
           ></iframe>

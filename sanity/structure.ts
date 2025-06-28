@@ -12,6 +12,9 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("about").title("About Page"),
       S.documentTypeListItem("contact").title("Contact Page"),
       S.documentTypeListItem("speaking").title("Speaking Page"),
+      S.documentTypeListItem("leftside").title("LeftSide Menu"),
+      S.documentTypeListItem("rightside").title("RightSide Menu"),
+      S.documentTypeListItem("socialLinks").title("Social Links"),
       S.divider(),
       ...S.documentTypeListItems().filter(
         (item) =>
@@ -24,6 +27,9 @@ export const structure: StructureResolver = (S) =>
             "about",
             "contact",
             "speaking",
+            "leftside",
+            "rightside",
+            "socialLinks",
           ].includes(item.getId()!)
       ),
     ]);
