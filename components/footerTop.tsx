@@ -11,8 +11,12 @@ import {
 import { Input } from "./ui/input";
 import Container from "./container";
 import { readToken } from "@/sanity/lib/sanity.api";
-import { getAllBlogs, getClient } from "@/sanity/lib/sanity.client";
-import { type Blog } from "@/sanity/lib/sanity.queries";
+import {
+  getAllBlogs,
+  getSocialLinks,
+  getClient,
+} from "@/sanity/lib/sanity.client";
+import { SocialLink, type Blog } from "@/sanity/lib/sanity.queries";
 import { toast } from "sonner";
 import Link from "next/link";
 
@@ -27,20 +31,25 @@ const moreAboutMeLinks = [
 export default function FooterTop() {
   const client = getClient({ token: readToken });
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [socials, setSocials] = useState<SocialLink[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchBlogs = async () => {
       setIsLoading(true);
       try {
-        const blogData = await getAllBlogs(client);
+        const [socialData, blogData] = await Promise.all([
+          getSocialLinks(client),
+          getAllBlogs(client),
+        ]);
         setBlogs(blogData);
+        setSocials(socialData);
         //console.log("Blog Data:", blogData);
       } catch (error) {
         //console.error("Error fetching blogs:", error);
         toast("Network Error", {
           description:
-            "Error fetching blogs; kindly check your internet connection.",
+            "Error fetching component data; kindly check your internet connection.",
         });
       } finally {
         setIsLoading(false);
@@ -112,46 +121,33 @@ export default function FooterTop() {
             Follow Me Elsewhere
           </h3>
           <div className="flex space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-black rounded-full p-2 bg-secondary flex items-center justify-center"
-            >
-              <FaFacebook className="text-white w-6 h-6" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-black rounded-full p-2 bg-secondary flex items-center justify-center"
-            >
-              <FaInstagram className="text-white w-6 h-6" />
-            </a>
-            <a
-              href="https://tumblr.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-black rounded-full p-2 bg-secondary flex items-center justify-center"
-            >
-              <FaTumblr className="text-white w-6 h-6" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-black rounded-full p-2 bg-secondary flex items-center justify-center"
-            >
-              <FaTwitter className="text-white w-6 h-6" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:bg-black rounded-full p-2 bg-secondary flex items-center justify-center"
-            >
-              <FaYoutube className="text-white w-6 h-6" />
-            </a>
+            {socials &&
+              socials.map((link) => {
+                const Icon =
+                  link.icon === "FaFacebook"
+                    ? FaFacebook
+                    : link.icon === "FaInstagram"
+                      ? FaInstagram
+                      : link.icon === "FaTumblr"
+                        ? FaTumblr
+                        : link.icon === "FaTwitter"
+                          ? FaTwitter
+                          : link.icon === "FaYoutube"
+                            ? FaYoutube
+                            : () => <span>Unknown</span>;
+
+                return (
+                  <a
+                    key={link.platform}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:bg-black rounded-full p-2 bg-secondary flex items-center justify-center"
+                  >
+                    <Icon className="text-lg" />
+                  </a>
+                );
+              })}
           </div>
         </div>
       </Container>
