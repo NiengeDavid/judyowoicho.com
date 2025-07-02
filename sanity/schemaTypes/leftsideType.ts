@@ -52,16 +52,16 @@ export const leftsideType = defineType({
   ],
   preview: {
     select: {
-      title: "books[0].type",
-      subtitle: "books[0].url",
-      media: "books[0].coverImage",
+      title: "books.0.type",
+      subtitle: "books.0.url",
+      media: "books.0.coverImage",
     },
     prepare(selection) {
       const { title, subtitle, media } = selection;
       return {
         title: title || "No type selected",
         subtitle: subtitle || "No URL provided",
-        media: media,
+        media: media || undefined,
       };
     },
   },

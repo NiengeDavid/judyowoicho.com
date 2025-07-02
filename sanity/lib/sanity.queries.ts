@@ -109,6 +109,43 @@ export const getSpeakQuery = groq`
 }
 `;
 
+// Get social links
+export const getSocialLinksQuery = groq`
+  *[_type == "socialLinks"] | order(_createdAt asc) {
+    platform,
+    url,
+    icon
+  }
+`;
+
+// Get rightsidebar content
+export const getRightsideQuery = groq`
+  *[_type == "rightside"][0] {
+    _id,
+    coverImage{
+      "url": asset->url,
+      "alt": alt
+    },
+    bio,
+    newsletterBio
+  }
+`;
+
+// Get leftsidebar content
+export const getLeftsideQuery = groq`
+  *[_type == "leftside"][0] {
+    _id,
+    books[]{
+      type,
+      url,
+      coverImage{
+       "url": asset->url,
+        "alt": alt
+      }
+    }
+  }
+`;
+
 export interface SanityImage {
   url: string;
   alt?: string;
@@ -197,4 +234,32 @@ export interface Speak {
     alt?: string;
   };
   body: any;
+}
+
+export interface SocialLink {
+  platform: string;
+  url: string;
+  icon: string;
+}
+
+export interface Rightside {
+  _id: string;
+  coverImage: {
+    url: string;
+    alt?: string;
+  };
+  bio: string;
+  newsletterBio: string;
+}
+
+export interface Leftside {
+  _id: string;
+  books: {
+    type: "comingSoon" | "readMyBooks"; // Enum for book types
+    url: string;
+    coverImage: {
+      url: string;
+      alt?: string;
+    };
+  }[];
 }

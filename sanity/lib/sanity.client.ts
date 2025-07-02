@@ -16,9 +16,15 @@ import {
   getBlogBySlugQuery,
   getBookBySlugQuery,
   getContactQuery,
+  getLeftsideQuery,
+  getRightsideQuery,
+  getSocialLinksQuery,
   getSpeakQuery,
+  Leftside,
+  Rightside,
   Speak,
   type Blog,
+  type SocialLink,
 } from "./sanity.queries";
 
 export function getClient(preview?: { token: string }): SanityClient {
@@ -83,4 +89,25 @@ export async function getContact(
 // Fetch speaking content
 export async function getSpeak(client: SanityClient): Promise<Speak | null> {
   return await client.fetch(getSpeakQuery);
+}
+
+// Fetch social links
+export async function getSocialLinks(
+  client: SanityClient
+): Promise<SocialLink[]> {
+  return await client.fetch(getSocialLinksQuery);
+}
+
+// Fetch RightSidebar Content
+export async function getRightside(
+  client: SanityClient
+): Promise<Rightside | null> {
+  return await client.fetch(getRightsideQuery);
+}
+
+// Fetch LeftSidebar Content
+export async function getLeftside(
+  client: SanityClient
+): Promise<Leftside | null> {
+  return await client.fetch(getLeftsideQuery);
 }
