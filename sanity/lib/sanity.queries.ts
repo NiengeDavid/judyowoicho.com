@@ -109,6 +109,19 @@ export const getSpeakQuery = groq`
 }
 `;
 
+//Get Services Page
+export const getServicesQuery = groq`
+  *[_type == "services"][0] {
+    _id,
+    title,
+    "mainImage": mainImage{
+    "url": asset->url,
+    "alt": alt
+  },
+   body,
+}
+`;
+
 // Get social links
 export const getSocialLinksQuery = groq`
   *[_type == "socialLinks"] | order(_createdAt asc) {
@@ -227,6 +240,16 @@ export interface Contact {
 }
 
 export interface Speak {
+  _id: string;
+  title: string;
+  mainImage: {
+    url: string;
+    alt?: string;
+  };
+  body: any;
+}
+
+export interface Service {
   _id: string;
   title: string;
   mainImage: {

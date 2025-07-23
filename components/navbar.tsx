@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Container from "./container";
 import { menuList } from "@/data/menuList";
 
@@ -47,17 +47,17 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="https://twitter.com"
+                href="https://www.linkedin.com/in/judithnguhemenowoicho"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-secondary"
               >
-                <FaTwitter className="w-6 h-6" />
+                <FaLinkedin className="w-6 h-6" />
               </a>
             </li>
             <li>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/judyowoicho/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-secondary"

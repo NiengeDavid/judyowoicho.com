@@ -12,6 +12,7 @@ import { speakingType } from "./speakingType";
 import { leftsideType } from "./leftsideType";
 import { rightsideType } from "./rightsideType";
 import { socialLinksType } from "./socialsType";
+import { sercicesType } from "./servicesType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -27,5 +28,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     leftsideType,
     rightsideType,
     socialLinksType,
+    sercicesType,
   ],
 };

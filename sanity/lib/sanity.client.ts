@@ -18,10 +18,12 @@ import {
   getContactQuery,
   getLeftsideQuery,
   getRightsideQuery,
+  getServicesQuery,
   getSocialLinksQuery,
   getSpeakQuery,
   Leftside,
   Rightside,
+  Service,
   Speak,
   type Blog,
   type SocialLink,
@@ -89,6 +91,13 @@ export async function getContact(
 // Fetch speaking content
 export async function getSpeak(client: SanityClient): Promise<Speak | null> {
   return await client.fetch(getSpeakQuery);
+}
+
+// Fetch Services content
+export async function getService(
+  client: SanityClient
+): Promise<Service | null> {
+  return await client.fetch(getServicesQuery);
 }
 
 // Fetch social links

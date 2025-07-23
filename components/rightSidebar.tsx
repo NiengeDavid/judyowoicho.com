@@ -9,6 +9,7 @@ import {
   FaTumblr,
   FaTwitter,
   FaYoutube,
+  FaLinkedin,
 } from "react-icons/fa";
 import {
   getSocialLinks,
@@ -106,9 +107,11 @@ export default function RightSidebar() {
                     ? FaTumblr
                     : link.icon === "FaTwitter"
                       ? FaTwitter
-                      : link.icon === "FaYoutube"
-                        ? FaYoutube
-                        : () => <span>Unknown</span>;
+                      : link.icon === "FaLinkedin"
+                        ? FaLinkedin
+                        : link.icon === "FaYoutube"
+                          ? FaYoutube
+                          : () => <span>Unknown</span>;
 
             return (
               <a

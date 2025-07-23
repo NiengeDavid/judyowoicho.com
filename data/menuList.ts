@@ -8,7 +8,7 @@ export const menuList = [
   },
   { name: "Speaking", href: "/speaking" },
   { name: "About", href: "/about" },
-  // { name: "Projects", href: "/projects" },
+  { name: "Services", href: "/services" },
   { name: "Contact", href: "/contact" },
 ];
 export const socialLinks = [
